@@ -25,15 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/_middleware": [
+    "/home": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "server/pages/_middleware.js"
-    ],
-    "/signin": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/signin.js"
+      "static/chunks/pages/home.js"
     ]
   },
   "ampFirstPages": []

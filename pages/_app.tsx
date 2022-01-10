@@ -1,48 +1,52 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import PlayerLayout from '../components/playerLayout'
-import 'reset-css'
-import { ThemeProvider } from 'next-themes'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import PlayerLayout from '../components/playerLayout';
+import 'reset-css';
+import 'tailwindcss/tailwind.css';
+import '../styles/globals.css';
+import '../styles.css';
 
 const theme = extendTheme({
-  colors: {
-    gray: {
-      100: '#F5f5f5',
-      200: '#EEEEEE',
-      300: '#E0E0E0',
-      400: '#BDBDBD',
-      500: '#9E9E9E',
-      600: '#757575',
-      700: '#616161',
-      800: '#424242',
-      900: '#212121',
+    colors: {
+        gray: {
+            100: '#F5f5f5',
+            200: '#EEEEEE',
+            300: '#E0E0E0',
+            400: '#BDBDBD',
+            500: '#9E9E9E',
+            600: '#757575',
+            700: '#616161',
+            800: '#424242',
+            900: '#212121'
+        }
     },
-  },
-  components: {
-    Button: {
-      variants: {
-        link: {
-          ':focus': {
-            outline: 'none',
-            boxShadow: 'none',
-          },
-        },
-      },
-    },
-  },
-})
+    components: {
+        Button: {
+            variants: {
+                link: {
+                    ':focus': {
+                        outline: 'none',
+                        boxShadow: 'none'
+                    }
+                }
+            }
+        }
+    }
+});
 
-const MyApp = ({ Component, pageProps }) => {
-  return (
-    <ChakraProvider theme={theme}>
-      {Component.authPage ? (
-        <Component {...pageProps} />
-      ) : (
-        <PlayerLayout>
-          <Component {...pageProps} />
-        </PlayerLayout>
-      )}
-    </ChakraProvider>
-  )
+function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
+
+// return (
+//   <ChakraProvider theme={theme}>
+//     {Component.authPage ? (
+//       <Component {...pageProps} />
+//     ) : (
+//       <PlayerLayout>
+//         <Component {...pageProps} />
+//       </PlayerLayout>
+//     )}
+//   </ChakraProvider>
+// )

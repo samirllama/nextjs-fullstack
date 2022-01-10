@@ -1,0 +1,8 @@
+{
+    "prettier.configPath": "/Users/chaos/Desktop/apps/nextjs-fullstack/.prettierrc.js",
+    "editor.fontSize": 14,
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.fontWeight": 400
+}
