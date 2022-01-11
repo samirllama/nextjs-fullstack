@@ -1,6 +1,10 @@
 # api keys
-.env  
+.env
+.env.local
 
 # dependencies
 node_modules
 .next
+.npmrc
+package-lock.json
+yarn.lock

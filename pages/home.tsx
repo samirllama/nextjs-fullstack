@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Dropdown from '../components/dropdown';
 import Navbar from '../components/navbar';
 import Header from '../components/header';
@@ -7,25 +8,24 @@ import BaseWrapper from '../components/baseWrapper';
 import MainWrapper from '../components/mainWrapper';
 import MenuSection from '../components/homeMenuSec';
 import RightSection from '../components/sidePanel';
+import Map from '../components/map/map';
+import Marker from '../components/map/marker';
 
-const MenuText = 'Checkout our menu';
 const ADDRESS = `Boudhanath Sadak, \nKatkhmandu, Nepal`;
+const URLTest = '/applePie.png'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-let state = 'busy';
-
-console.log(
-    classNames(
-        'border border-4 border-dashed absolute inset-4 rounded-lg',
-        'transition-all duration-300 ease-in-out',
-        state === 'busy' && 'border-gray-300'
-    )
-);
+const render = (status: Status) => {
+    return <h1>{status}</h1>;
+  };
 
 const Home = () => {
+    const secOneRef = React.useRef(null);
+    const imageRef = React.useRef(null);
+
     const [isOpen, setIsOpen] = React.useState(false);
     const [miniLogo, setMiniLogo] = React.useState(false);
     const [show, doShow] = React.useState({
@@ -33,9 +33,24 @@ const Home = () => {
         secTwo: false,
         secThree: false
     });
-    const secOneRef = React.useRef(null);
-    const imageRef = React.useRef(null);
-    const URLTest = '/applePie.png'
+    const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
+    const [zoom, setZoom] = React.useState(3); // initial zoom
+    const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
+      lat: 0,
+      lng: 0,
+    });
+
+    const onMapClick = (e: google.maps.MapMouseEvent) => {
+        // avoid directly mutating state
+        setClicks([...clicks, e.latLng!]);
+      };
+
+  const onIdle = (m: google.maps.Map) => {
+    console.log("onIdle");
+    setZoom(m.getZoom()!);
+    setCenter(m.getCenter()!.toJSON());
+  };
+
 
     React.useEffect(() => {
         const heroPosititon = imageRef.current.getBoundingClientRect().top;
@@ -49,6 +64,8 @@ const Home = () => {
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+
+    console.log('from home',process.env.NEXT_PUBLIC_API_KEY)
 
     return (
         <BaseWrapper>
@@ -129,8 +146,20 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="col-span-1 w-full bg-orange-500  justify-items-center">
-                            <div className="">Map</div>
+                        <div className="col-span-1 w-full  justify-items-center">
+                        <Wrapper apiKey={'AIzaSyC8LuURZAoPg9ePnE97QrFtkx0IsDhoIa'} render={render}>
+        <Map
+          center={center}
+          onClick={onMapClick}
+          onIdle={onIdle}
+          zoom={zoom}
+          style={{ flexGrow: "1", height: "100%" }}
+        >
+          {clicks.map((latLng, i) => (
+            <Marker key={i} position={latLng} />
+          ))}
+        </Map>
+      </Wrapper>
                         </div>
                     </div>
 
