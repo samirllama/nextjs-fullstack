@@ -6,7 +6,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint --fix .",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+        "build:base-css": "tailwindcss build ./styles/tailwind.base.css -o ./styles/base.css"
     },
     "dependencies": {
         "@chakra-ui/layout": "^1.5.1",
@@ -14,6 +15,7 @@
         "@dh-react-hooks/use-raf": "^0.9.1",
         "@emotion/react": "^11.6.0",
         "@emotion/styled": "^11.6.0",
+        "@googlemaps/react-wrapper": "^1.1.20",
         "@prisma/client": "^3.6.0",
         "bcrypt": "^5.0.1",
         "cookie": "^0.4.1",

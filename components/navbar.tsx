@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Navbar({ toggle }) {
     return (
-        <div id="nav_btn" className="drop-shadow-xl z-30 fixed top-4 w-100 h-100">
+        <div id="nav_btn" className="drop-shadow-xl z-30 fixed top-4  left-2 w-100 h-100">
             <div className="flex flex-row justify-center h-10">
                 <div
                     className="w-20 px-4 pt-4 cursor-pointer fixed left-0 right-0"

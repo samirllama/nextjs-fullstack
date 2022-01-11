@@ -669,7 +669,6 @@ export function Menu() {
 
     return (
         <BaseWrapper>
-    
             <header
                 id="header"
                 className="w-full h-16 z-10 fixed left-0 top-0 col-span-full justify-self-stretch bg-gray-white"
@@ -684,8 +683,7 @@ export function Menu() {
                 </h1>
             </header>
 
-
-                <Navbar toggle={() => setIsOpen(!isOpen)} />
+            <Navbar toggle={() => setIsOpen(!isOpen)} />
 
             <div id="main" className="mx-0 mt-20 block pt-16 ">
                 <div
@@ -880,7 +878,7 @@ export function Menu() {
                     </ul>
                 </div>
             </div>
-        </MainWrapper>
+        </BaseWrapper>
     );
 }
 export default Menu;
