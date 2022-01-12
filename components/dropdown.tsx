@@ -28,9 +28,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                         'w-20 h-20 rounded-full',
                         'absolute top-20 left-28',
                         'transition-all ease-out duration-1000',
-                        // 'border-double border-4',
-                        'border-gray-900 border-4  border-t-2 border-b-2',
-                        'ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100 animate-bounce',
+                        'ring-2 ring-blue-600 ring-offset-4 ring-offset-purple-100 animate-bounce',
                         isOpen && 'animate-none'
                     )}
                 >
@@ -45,16 +43,21 @@ const Dropdown = ({ isOpen, toggle }) => {
                         className={classNames(
                             'p-2 ml-0',
                             'font-futura font-bold text-left',
-                            'text-2xl tracking-wide'
+                            'text-2xl tracking-wide',
+                            // 'before:scale-x-0',
+                            'hover:underline-offset-4 hover:underline'
                         )}
                     >
-                        <Link href="/">HOME</Link>
+                        <Link className={classNames()} href="/">
+                            HOME
+                        </Link>
                     </li>
                     <li
                         className={classNames(
                             'p-2 ml-0',
                             'font-mono font-bold text-left',
-                            'text-2xl tracking-wide'
+                            'text-2xl tracking-wide',
+                            'hover:underline-offset-4 hover:underline'
                         )}
                     >
                         <Link href="/menu">MENU LIST</Link>
@@ -63,7 +66,9 @@ const Dropdown = ({ isOpen, toggle }) => {
                         className={classNames(
                             'p-2 ml-0',
                             'font-mono font-bold text-left',
-                            'text-2xl tracking-wide'
+                            'text-2xl tracking-wide',
+                            'hover:underline-offset-4 hover:underline hover:ease-in',
+                            'transition duration-1000 ease-out'
                         )}
                     >
                         <Link href="/contact">CONTACT</Link>

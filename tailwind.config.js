@@ -33,12 +33,12 @@ module.exports = {
             30: '30',
             20: '20',
             10: '10',
-            9:'9',
-            8:'8',
-            7:'7',
-            6:'6',
-            5:'5',
-            4:'4',
+            9: '9',
+            8: '8',
+            7: '7',
+            6: '6',
+            5: '5',
+            4: '4',
             3: '3',
             2: '2',
             1: '1'
@@ -51,20 +51,18 @@ module.exports = {
                     },
                     '50%': {
                         transform: 'rotate(3deg)'
-                    },
+                    }
                 },
-                move :{
-                    from: {transform: "translateX(-400px)"},
-                    to :{transform: "translateX(1350px)"}
-                  }
+                move: {
+                    from: { transform: 'translateX(-400px)' },
+                    to: { transform: 'translateX(1350px)' }
+                }
             },
             animation: {
-                wiggle: 'wiggle 1s ease-in-out infinite',   
+                wiggle: 'wiggle 1s ease-in-out infinite'
             }
-        },
+        }
     },
-    variants: {
-
-    },
+    variants: {},
     plugins: []
 };

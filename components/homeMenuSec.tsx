@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
-import {Badge} from "../components/badge";
+import { Badge } from '../components/badge';
 
-const SPEACH_URL = '/Speach1.svg'
+const SPEACH_URL = '/Speach1.svg';
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
@@ -47,10 +47,10 @@ export default function MenuSection() {
                             'relative float-left rounded-full',
                             'my-1 ml-40 w-32 h-32 ',
                             'opacity-100',
-                            'float-left',
+                            'float-left'
                         )}
                     >
-                      <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
+                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>} />
                         <img
                             className="rounded-full object-fill object-top w-32 h-32 shadow-lg"
                             src="/yetiFoodFb.png"
@@ -62,18 +62,16 @@ export default function MenuSection() {
                             'relative float-left rounded-full',
                             'my-2 ml-14 w-32 h-32 ',
                             'opacity-100',
-                            'float-left',
+                            'float-left'
                             // 'overflow-hidden',
                         )}
                     >
-                        
-                         <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
+                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>} />
                         <img
                             className="rounded-full object-cover object-right-top w-32 h-32"
                             src="/brownie.png"
                             alt="brownie and coffee"
                         />
-                          
                     </li>
                     <li
                         className={classNames(
@@ -93,14 +91,12 @@ export default function MenuSection() {
                             'relative float-left rounded-full',
                             'my-2 ml-14 w-32 h-32 ',
                             'opacity-100',
-                            'float-left',
+                            'float-left'
                         )}
                     >
-                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
+                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>} />
                         <img
-                            className={classNames(
-                                "rounded-full  w-32 h-32",
-                                )}
+                            className={classNames('rounded-full  w-32 h-32')}
                             src="/yetiCakeNeyYorkStyle.png"
                             alt="Tea menu in cafe"
                         />
@@ -110,10 +106,10 @@ export default function MenuSection() {
                             'relative float-left rounded-full',
                             'my-2 mt-3 ml-14 w-32 h-32',
                             'opacity-100',
-                            'float-left',
+                            'float-left'
                         )}
                     >
-                                <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
+                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>} />
                         <img
                             className="rounded-full object-fill object-top w-32 h-32"
                             src="/brownieWVanilla.png"
@@ -129,9 +125,9 @@ export default function MenuSection() {
                     >
                         <img
                             className={classNames(
-                                "rounded-full w-52 h-48",
-                                "object-cover object-left",
-                                )}
+                                'rounded-full w-52 h-48',
+                                'object-cover object-left'
+                            )}
                             src="/lemonCakeFB.png"
                             alt="A picture of Lemon Cake and slice of lemon"
                         />
