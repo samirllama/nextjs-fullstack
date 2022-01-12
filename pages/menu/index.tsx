@@ -690,7 +690,7 @@ export function Menu() {
                     id="menu-category-sec"
                     className="px-16 mt-0 mb-20 mx-auto opacity-100 max-w-screen-xl border-0 border-t border-solid "
                 >
-                    <div id="menu-drinks" className="font-bold text-xl  py-14">
+                    <div id="menu-drinks" className="font-bold text-xl  py-14 font-mono">
                         DRINKS
                     </div>
                     <ul id="drinks-list" className="group relative flex flex-row list-none">

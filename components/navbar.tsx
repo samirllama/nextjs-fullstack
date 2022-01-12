@@ -1,13 +1,22 @@
 import React from 'react';
 
+function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(' ');
+}
+
 export default function Navbar({ toggle }) {
     return (
-        <div id="nav_btn" className="drop-shadow-xl z-30 fixed top-4  left-2 w-100 h-100">
-            <div className="flex flex-row justify-center h-10">
-                <div
-                    className="w-20 px-4 pt-4 cursor-pointer fixed left-0 right-0"
-                    onClick={toggle}
-                >
+        <div
+            id="nav_btn"
+            className={classNames(
+                'drop-shadow-xl',
+                'z-200 ',
+                'w-16 h-16 ',
+                'fixed top-4 left-2 justify-center'
+            )}
+        >
+            <div className={classNames('flex flex-row', 'items-center justify-center', 'h-full')}>
+                <div className={classNames('cursor-pointer')} onClick={toggle}>
                     <svg
                         className="w-6 h-6"
                         fill="grey"
@@ -18,7 +27,7 @@ export default function Navbar({ toggle }) {
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth={2}
+                            strokeWidth={1.75}
                             d="M4 6h16M4 12h16M4 18h16"
                         />
                     </svg>

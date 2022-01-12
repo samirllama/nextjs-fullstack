@@ -1,5 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
+import {Badge} from "../components/badge";
+
+const SPEACH_URL = '/Speach1.svg'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
@@ -7,35 +10,34 @@ function classNames(...classes: string[]) {
 
 export default function MenuSection() {
     let [inView, setInViewState] = useState('pending');
-     const [show, doShow] = useState({
+    const [show, doShow] = useState({
         itemOne: false,
         itemTwo: false,
         itemThree: false
-      });
+    });
     const menuSectionRef = useRef(null);
 
     const MenuText = 'MENU LIST';
     const router = useRouter();
 
-
     useEffect(() => {
-        const bottomPos= element => element.getBoundingClientRect().bottom;
-        const div1Pos = bottomPos(menuSectionRef.current)
+        const bottomPos = (element) => element.getBoundingClientRect().bottom;
+        const div1Pos = bottomPos(menuSectionRef.current);
 
-    const onScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight;
-      if (div1Pos < scrollPos) {
-        doShow(state => ({ ...state, itemOne: true }));
-      }
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+        const onScroll = () => {
+            const scrollPos = window.scrollY + window.innerHeight;
+            if (div1Pos < scrollPos) {
+                doShow((state) => ({ ...state, itemOne: true }));
+            }
+        };
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
         <div
             id="menu-sec"
-            className="relative overflow-hidden col-span-4 rounded-lg  cursor-pointer w-9/12 h-96"
+            className="relative overflow-hidden col-span-4 rounded-lg cursor-pointer w-5/6 h-96"
             ref={menuSectionRef}
         >
             <div id="menu-right" className={classNames('float-right', 'w-2/3', 'pt-10')}>
@@ -43,14 +45,14 @@ export default function MenuSection() {
                     <li
                         className={classNames(
                             'relative float-left rounded-full',
-                            'ml-40 w-32 h-32 ',
+                            'my-1 ml-40 w-32 h-32 ',
                             'opacity-100',
                             'float-left',
-                            'overflow-hidden'
                         )}
                     >
+                      <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
                         <img
-                            className="rounded-full object-contain object-right-top w-48 h-48 shadow-lg animate-pulse"
+                            className="rounded-full object-fill object-top w-32 h-32 shadow-lg"
                             src="/yetiFoodFb.png"
                             alt="Tea menu in cafe"
                         />
@@ -58,22 +60,25 @@ export default function MenuSection() {
                     <li
                         className={classNames(
                             'relative float-left rounded-full',
-                            'ml-14  w-32 h-32 ',
+                            'my-2 ml-14 w-32 h-32 ',
                             'opacity-100',
                             'float-left',
-                            'overflow-hidden'
+                            // 'overflow-hidden',
                         )}
                     >
+                        
+                         <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
                         <img
-                            className="rounded-full object-contain object-right-top w-48 h-48"
+                            className="rounded-full object-cover object-right-top w-32 h-32"
                             src="/brownie.png"
                             alt="brownie and coffee"
                         />
+                          
                     </li>
                     <li
                         className={classNames(
                             'relative float-left',
-                            'ml-14 w-44 h-44 ',
+                            'my-2 ml-14 w-32 h-32',
                             'opacity-100 overflow-hidden'
                         )}
                     >
@@ -86,14 +91,16 @@ export default function MenuSection() {
                     <li
                         className={classNames(
                             'relative float-left rounded-full',
-                            'ml-14 w-32 h-32 ',
+                            'my-2 ml-14 w-32 h-32 ',
                             'opacity-100',
                             'float-left',
-                            'overflow-hidden'
                         )}
                     >
+                        <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
                         <img
-                            className="rounded-full object-contain object-right-top w-48 h-48"
+                            className={classNames(
+                                "rounded-full  w-32 h-32",
+                                )}
                             src="/yetiCakeNeyYorkStyle.png"
                             alt="Tea menu in cafe"
                         />
@@ -101,14 +108,14 @@ export default function MenuSection() {
                     <li
                         className={classNames(
                             'relative float-left rounded-full',
-                            'ml-14 w-32 h-32 ',
+                            'my-2 mt-3 ml-14 w-32 h-32',
                             'opacity-100',
                             'float-left',
-                            'overflow-hidden'
                         )}
                     >
+                                <Badge variant={Badge.variant.BABYBLUE} children={<>New!</>}/>
                         <img
-                            className="rounded-full object-contain object-top w-48 h-48"
+                            className="rounded-full object-fill object-top w-32 h-32"
                             src="/brownieWVanilla.png"
                             alt="brownie and coffee"
                         />
@@ -116,12 +123,15 @@ export default function MenuSection() {
                     <li
                         className={classNames(
                             'relative float-left rounded-full',
-                            'ml-14  w-32 h-32',
+                            'my-2 ml-14  w-32 h-32',
                             'opacity-100 overflow-hidden'
                         )}
                     >
                         <img
-                            className="rounded-full object-cover object-left w-52 h-48 animate-pulse"
+                            className={classNames(
+                                "rounded-full w-52 h-48",
+                                "object-cover object-left",
+                                )}
                             src="/lemonCakeFB.png"
                             alt="A picture of Lemon Cake and slice of lemon"
                         />
@@ -136,7 +146,7 @@ export default function MenuSection() {
                         'bg-yetiGreen',
                         'w-5/6 h-5/6',
                         'z-20',
-                        'transition-property: all ease-out duration-1000',
+                        'transition-all ease-out duration-1000',
                         // inView && 'absolute top-0 left-1',
                         show.itemOne && 'absolute top-0 left-1'
                     )}
@@ -155,10 +165,10 @@ export default function MenuSection() {
                             'mx-auto my-0 w-fit bottom-24',
                             'text-white '
                         )}
-                        onClick={() => doShow(state => ({...state, itemOne: !show.itemOne}))}
+                        onClick={() => doShow((state) => ({ ...state, itemOne: !show.itemOne }))}
                     >
                         <svg
-                            className="w-12 h-12  stroke-white animate-bounce"
+                            className="w-12 h-12  stroke-white animate-[bounce_1s_infinite]"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
